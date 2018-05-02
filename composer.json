@@ -1,10 +1,44 @@
 {
+  "name": "zlik/test-aws",
+  "description": "My test project",
+  "type": "project",
+  "version": "0.0",
+  "repositories": {
+    "0": {
+      "type": "composer",
+      "url": "https://repo.magento.com/"
+    }
+  },
+  "require": {
+    "magento/product-community-edition": "2.1.9",
+    "composer/composer": "@alpha"
+  },
   "autoload": {
-    "classmap": [
-      "src/"
+    "psr-4": {
+      "Magento\\Framework\\": "lib/internal/Magento/Framework/",
+      "Magento\\Setup\\": "setup/src/Magento/Setup/",
+      "Magento\\": "app/code/Magento/"
+    },
+    "psr-0": {
+      "": [
+        "app/code/",
+        "var/generation"
+      ]
+    },
+    "files": [
+      "app/etc/NonComposerComponentRegistration.php",
+      "app/code/Magento/Framework/Setup/FilePermissions.php"
+    ],
+    "exclude-from-classmap": [
+      "**/dev/**",
+      "**/update/**",
+      "**/Test/**",
+      "vendor/magento/framework/Setup/FilePermissions.php"
     ]
   },
-  "require-dev": {
-    "phpunit/phpunit": "^7"
+  "minimum-stability": "alpha",
+  "prefer-stable": true,
+  "extra": {
+    "magento-force": "override"
   }
 }

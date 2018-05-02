@@ -1,6 +1,9 @@
 version: 0.1
 
 phases:
+  install:
+    commands:
+      - echo Entered the install phase...
   build:
     commands:
       - echo Entered the build phase...
