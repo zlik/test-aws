@@ -10,5 +10,5 @@ phases:
       - echo Build started on `date`
       - composer install
 artifacts:
-    files:
-      - **/*
+  files:
+    - **/*
