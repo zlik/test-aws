@@ -1,18 +1,8 @@
-version: 0.0
+version: 0.1
 
 phases:
-  install:
-    commands:
-      - echo Entered the install phase...
-  pre_build:
-    commands:
-      - echo Entered the pre_build phase...
   build:
     commands:
       - echo Entered the build phase...
       - echo Build started on `date`
       - composer install
-  post_build:
-    commands:
-      - echo Entered the post_build phase...
-      - echo Build completed on `date`
