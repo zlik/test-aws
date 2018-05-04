@@ -5,4 +5,4 @@ if [[ ! $(hostname) =~ ip-172-31-10-201 ]]; then
     exit 0
 fi
 
-php /var/www/html/scripts/web_maintenance.php
+php ~/maintenance-on.php
