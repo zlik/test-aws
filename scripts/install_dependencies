@@ -1,2 +1,2 @@
 #!/bin/bash
-yum install -y httpd24 php70
+yum install -y httpd php56
