@@ -9,6 +9,7 @@ phases:
       - echo Entered the build phase...
       - echo Build started on `date`
       - composer install
+      - php bin/magento setup:di:compile
 artifacts:
   files:
     - '**/*'
