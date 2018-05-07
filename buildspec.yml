@@ -8,8 +8,10 @@ phases:
     commands:
       - echo Entered the build phase...
       - echo Build started on `date`
-      - composer install
+      - composer install --no-dev
+      - php bin/magento module:enable --all
       - php bin/magento setup:di:compile
+      - composer dump-autoload --no-dev --optimize
 artifacts:
   files:
     - '**/*'
