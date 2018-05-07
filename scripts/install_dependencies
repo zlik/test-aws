@@ -5,5 +5,3 @@ if [ $(hostname) = ip-172-31-10-201 ]; then
 fi
 
 sudo yum install -y httpd24 php70 --skip-broken
-sudo mkdir /var/www/html/
-sudo chmod -R 777 /var/www/html
