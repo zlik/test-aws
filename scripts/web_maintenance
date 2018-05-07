@@ -2,6 +2,10 @@
 
 <?php
 
+if (gethostname() !== 'ip-172-31-10-201') {
+    exit(0);
+}
+
 $targetRegion = 'us-west-1';
 $targetLaunchConfigurationName = 'my-launch-configuration';
 

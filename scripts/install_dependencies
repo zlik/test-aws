@@ -4,4 +4,4 @@ if [ $(hostname) = ip-172-31-10-201 ]; then
     exit 0
 fi
 
-yum install -y httpd
+sudo yum install -y httpd24 php70 --skip-broken
