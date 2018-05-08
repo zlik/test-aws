@@ -28,3 +28,6 @@ foreach ($targetInstanceIps as $instanceIp) {
         echo "We are now in maintenance mode" > index.html
 EOF`;
 }
+
+//ADMIN IN MAINTENANCE
+//API MAINTENANCE
