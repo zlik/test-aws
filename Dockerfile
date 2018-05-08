@@ -30,3 +30,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  && echo "$composer_checksum *installer" | shasum -c -a 384 \
  && php installer --install-dir=/usr/local/bin --filename=composer \
  && rm -rf /var/lib/apt/lists/*
+
+COPY "configs/custom-php-options.ini" "/usr/local/etc/php/conf.d/custom-php-options.ini"
