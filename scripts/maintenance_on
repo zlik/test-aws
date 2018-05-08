@@ -2,7 +2,7 @@
 
 <?php
 
-if (gethostname() !== 'admin5') {
+if (gethostname() !== 'admin') {
     exit(0);
 }
 

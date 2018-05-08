@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $(hostname) = admin5 ]; then
+if [ $(hostname) = admin ]; then
     exit 0
 fi
 
