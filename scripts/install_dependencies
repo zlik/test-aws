@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $(hostname) = ip-172-31-10-201 ]; then
+if [ $(hostname) = admin5 ]; then
     exit 0
 fi
 

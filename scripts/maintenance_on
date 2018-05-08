@@ -1,8 +1,8 @@
-#!/usr/bin/php7
+#!/usr/bin/php
 
 <?php
 
-if (gethostname() !== 'ip-172-31-10-201') {
+if (gethostname() !== 'admin5') {
     exit(0);
 }
 
