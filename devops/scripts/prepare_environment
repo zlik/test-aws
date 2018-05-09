@@ -30,7 +30,3 @@ if (!$res) {
     echo 'Cannot write to app/etc/env.php'.
     exit(1);
 }
-
-#chmod($destinationEnvFile, 0644);
-#chown($destinationEnvFile, 'apache');
-#chgrp($destinationEnvFile, 'apache');
