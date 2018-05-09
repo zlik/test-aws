@@ -5,6 +5,12 @@
 $sourceEnvFile      = __DIR__ . '/../templates/env.php.tmpl';
 $destinationEnvFile = __DIR__ . '/../../app/etc/env.php';
 
+function flatten(array $array) {
+    $return = array();
+    array_walk($array, function($a) use (&$return) { $return[$a[0]] = $a[1]; });
+    return $return;
+}
+
 $sourceEnvTmpl = file_get_contents($sourceEnvFile);
 if (!$sourceEnvTmpl) {
     echo 'Cannot load env.php template file'.
@@ -12,18 +18,19 @@ if (!$sourceEnvTmpl) {
 }
 
 $targetRegion = 'us-west-1';
-$params = [
+$paramNames = [
     'test.crypt_key',
     'test.mysql.host',
     'test.mysql.dbname',
     'test.mysql.username',
     'test.mysql.password',
 ];
-$paramsStr = implode(' ', $params);
-$values = json_decode(`sudo -u ec2-user \
-    aws ssm get-parameters --region $targetRegion --names $paramsStr --with-decryption --query Parameters[*].Value`);
+$paramNamesStr = implode(' ', $paramNames);
+$params = flatten(json_decode(`
+    aws ssm get-parameters --region $targetRegion --names $paramNamesStr --with-decryption \
+        --query Parameters[*].[Name,Value]`));
 
-$destinationEnvTmpl = str_replace($params, $values, $sourceEnvTmpl);
+$destinationEnvTmpl = str_replace(array_keys($params), array_values($params), $sourceEnvTmpl);
 
 $res = file_put_contents($destinationEnvFile, $destinationEnvTmpl);
 if (!$res) {
