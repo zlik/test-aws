@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if [ $(hostname) != admin ]; then
-    exit 0
-fi
-
-bin/magento maintenance:disable

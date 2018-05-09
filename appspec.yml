@@ -12,7 +12,4 @@ hooks:
     - location: scripts/deploy
       timeout: 300
       runas: ec2-user
-  AfterInstall:
-    - location: scripts/maintenance_off
-      timeout: 300
-      runas: ec2-user
+

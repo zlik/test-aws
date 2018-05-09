@@ -6,5 +6,4 @@ fi
 
 bin/magento cache:flush
 bin/magento setup:upgrade
-
-sleep 10s
+bin/magento maintenance:disable
