@@ -24,8 +24,8 @@ $targetInstanceIps = flatten(json_decode(`aws ec2 describe-instances --region $t
 
 foreach ($targetInstanceIps as $instanceIp) {
     `ssh -T ec2-user@$instanceIp << EOF
-        cd /var/www/html; sudo chmod 777 *
-        echo "We are now in maintenance mode" > index.html
+        cd /var/www/cmg
+        bin/magento maintenance:enable
 EOF`;
 }
 
