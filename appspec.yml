@@ -7,7 +7,7 @@ hooks:
   BeforeInstall:
     - location: devops/scripts/prepare_environment
       timeout: 300
-      runas: ec2-user
+      runas: root
     - location: devops/scripts/maintenance_on
       timeout: 300
       runas: ec2-user
