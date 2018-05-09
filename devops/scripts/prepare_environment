@@ -26,7 +26,7 @@ $paramNames = [
     'test.mysql.password',
 ];
 $paramNamesStr = implode(' ', $paramNames);
-$params = flatten(json_decode(`
+$params = flatten(json_decode(`sudo -u ec2-user \
     aws ssm get-parameters --region $targetRegion --names $paramNamesStr --with-decryption \
         --query Parameters[*].[Name,Value]`));
 
