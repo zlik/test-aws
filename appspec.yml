@@ -5,12 +5,12 @@ files:
     destination: /var/www/cmg/
 hooks:
   BeforeInstall:
-    - location: devops/scripts/prepare_environment
-      timeout: 300
-      runas: root
     - location: devops/scripts/maintenance_on
       timeout: 300
       runas: ec2-user
+    - location: devops/scripts/prepare_environment
+      timeout: 300
+      runas: root
   Install:
     - location: devops/scripts/deploy
       timeout: 300
