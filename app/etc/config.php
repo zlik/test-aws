@@ -118,6 +118,21 @@ return [
     'Magento_Wishlist' => 1,
     'Magento_WishlistAnalytics' => 1,
   ],
+  'scopes' =>
+  [
+    'websites' =>
+    [
+      'base' =>
+      [
+        'website_id' => '1',
+        'code' => 'base',
+        'name' => 'Main Website',
+        'sort_order' => '0',
+        'default_group_id' => '1',
+        'is_default' => '1',
+      ],
+    ],
+  ],
   'themes' => 
   [
     'frontend/Magento/blank' => 
