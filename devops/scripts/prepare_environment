@@ -24,7 +24,7 @@ $values = json_decode(`aws ssm get-parameters --region $targetRegion --names $pa
 
 $targetEnvTmpl = str_replace($params, $values, $sourceEnvTmpl);
 
-$res = file_put_contents(__DIR__ . '/../../app/etc/env.php', $targetEnvTmpl);
+$res = file_put_contents($destinationEnvFile, $targetEnvTmpl);
 if (!$res) {
     echo 'Cannot write to app/etc/env.php'.
     exit(1);
