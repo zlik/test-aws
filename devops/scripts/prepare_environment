@@ -31,6 +31,6 @@ if (!$res) {
     exit(1);
 }
 
-chmod($destinationEnvFile, 0644);
-chown($destinationEnvFile, 'apache');
-chgrp($destinationEnvFile, 'apache');
+#chmod($destinationEnvFile, 0644);
+#chown($destinationEnvFile, 'apache');
+#chgrp($destinationEnvFile, 'apache');
