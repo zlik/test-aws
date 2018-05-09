@@ -1,0 +1,27 @@
+#!/usr/bin/php
+
+<?php
+
+$sourceEnvTmpl = file_get_contents(__DIR__ . '/../templates/env.php.tmpl');
+if (!$sourceEnvTmpl) {
+    echo 'Cannot load env.php template file'.
+    exit(1);
+}
+
+$targetRegion = 'us-west-1';
+$params = [
+    'test.crypt_key',
+    'test.mysql.host',
+    'test.mysql.dbname',
+    'test.mysql.username',
+    'test.mysql.password',
+];
+$paramsStr = implode(' ', $params);
+$values = json_decode(`aws ssm get-parameters --region $targetRegion --names $paramsStr --with-decryption --query Parameters[*].Value`);
+
+$targetEnvTmpl = str_replace($params, $values, $sourceEnvTmpl);
+$res = file_put_contents(__DIR__ . '/../../app/etc/env.php', $targetEnvTmpl);
+if (!$res) {
+    echo 'Cannot write to app/etc/env.php'.
+    exit(1);
+}
