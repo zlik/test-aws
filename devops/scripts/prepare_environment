@@ -2,11 +2,10 @@
 
 <?php
 
-$sourceEnvFile      = __DIR__ . '/../templates/env.php.tmpl';
-$destinationEnvFile = __DIR__ . '/../../app/etc/env.php';
+$envFile = __DIR__ . '/../../app/etc/env.php';
 
-$sourceEnvTmpl = file_get_contents($sourceEnvFile);
-if (!$sourceEnvTmpl) {
+$envTmpl = file_get_contents($envFile);
+if (!$envTmpl) {
     echo 'Cannot load env.php template file'.
     exit(1);
 }
@@ -22,14 +21,8 @@ $params = [
 $paramsStr = implode(' ', $params);
 $values = json_decode(`aws ssm get-parameters --region $targetRegion --names $paramsStr --with-decryption --query Parameters[*].Value`);
 
-$destinationEnvTmpl = str_replace($params, $values, $sourceEnvTmpl);
-
-$res = file_put_contents($destinationEnvFile, $destinationEnvTmpl);
+$res = file_put_contents($envTmpl, str_replace($params, $values, $envTmpl));
 if (!$res) {
     echo 'Cannot write to app/etc/env.php'.
     exit(1);
 }
-
-chmod($destinationEnvFile, 0644);
-chown($destinationEnvFile, 'apache');
-chown($destinationEnvFile, 'apache');
