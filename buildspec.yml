@@ -4,6 +4,9 @@ phases:
   install:
     commands:
       - echo Entered the install phase...
+  pre_build:
+    commands:
+      - chmod +x bin/magento
   build:
     commands:
       - echo Entered the build phase...
@@ -13,6 +16,7 @@ phases:
       - bin/magento setup:di:compile
       - composer dump-autoload --no-dev --optimize
       - bin/magento setup:static-content:deploy -f
+      - echo Build finished
 artifacts:
   files:
     - '**/*'
