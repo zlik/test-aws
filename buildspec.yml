@@ -12,7 +12,7 @@ phases:
       - bin/magento module:enable --all
       - bin/magento setup:di:compile
       - composer dump-autoload --no-dev --optimize
-      - bin/magento setup:static-content:deploy
+      - bin/magento setup:static-content:deploy -f
 artifacts:
   files:
     - '**/*'
