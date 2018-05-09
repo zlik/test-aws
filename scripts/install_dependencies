@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if [ $(hostname) = admin ]; then
-    exit 0
-fi
-
-sudo yum install -y httpd24 php70 --skip-broken

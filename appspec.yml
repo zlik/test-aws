@@ -9,7 +9,7 @@ hooks:
       timeout: 300
       runas: ec2-user
   Install:
-    - location: scripts/db_upgrade
+    - location: scripts/deploy
       timeout: 300
       runas: ec2-user
   AfterInstall:

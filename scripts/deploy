@@ -4,4 +4,7 @@ if [ $(hostname) != admin ]; then
     exit 0
 fi
 
-bin/magento maintenance:disable
+bin/magento cache:flush
+bin/magento setup:upgrade
+
+sleep 10s

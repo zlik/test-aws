@@ -29,5 +29,6 @@ foreach ($targetInstanceIps as $instanceIp) {
 EOF`;
 }
 
-//ADMIN IN MAINTENANCE
-//API MAINTENANCE
+// ADMIN IN MAINTENANCE
+`bin/magento maintenance:enable`;
+// API MAINTENANCE
