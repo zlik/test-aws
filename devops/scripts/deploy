@@ -7,6 +7,3 @@ fi
 bin/magento cache:flush
 bin/magento setup:upgrade
 bin/magento maintenance:disable
-
-#sudo chmod -R 0777 .
-#sudo chown -R apache:apache .
