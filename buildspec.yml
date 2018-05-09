@@ -9,9 +9,10 @@ phases:
       - echo Entered the build phase...
       - echo Build started on `date`
       - composer install --no-dev
-      - php bin/magento module:enable --all
-      - php bin/magento setup:di:compile
+      - bin/magento module:enable --all
+      - bin/magento setup:di:compile
       - composer dump-autoload --no-dev --optimize
+      - bin/magento setup:static-content:deploy
 artifacts:
   files:
     - '**/*'
