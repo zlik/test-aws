@@ -8,6 +8,5 @@ bin/magento cache:flush
 bin/magento setup:upgrade
 bin/magento maintenance:disable
 
-sudo find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} \;
-sudo find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} \;
+sudo chmod -R 0777 .
 sudo chown -R apache:apache .
