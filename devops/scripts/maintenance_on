@@ -7,7 +7,7 @@ if (gethostname() !== 'admin') {
 }
 
 $targetRegion = 'us-west-1';
-$targetLaunchConfigurationName = 'my-launch-configuration';
+$targetLaunchConfigurationName = 'my-ami-launch-configuration';
 
 function flatten(array $array) {
     $return = array();
