@@ -16,6 +16,6 @@ hooks:
       timeout: 300
       runas: apache
   AfterInstall:
-    - location: scripts/set_permissions
+    - location: devops/scripts/set_permissions
       timeout: 300
       runas: root
