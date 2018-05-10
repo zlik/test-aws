@@ -14,7 +14,7 @@ hooks:
   Install:
     - location: devops/scripts/deploy
       timeout: 300
-      runas: ec2-user
+      runas: apache
 permissions:
   - object: /var/www/cmg/
     pattern: "**"

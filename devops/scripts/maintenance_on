@@ -23,12 +23,12 @@ $targetInstanceIps = flatten(json_decode(`aws ec2 describe-instances --region $t
     --instance-ids $targetInstanceIdsString --query 'Reservations[*].Instances[*].[PrivateIpAddress]'`, true));
 
 foreach ($targetInstanceIps as $instanceIp) {
-    `ssh -T ec2-user@$instanceIp << EOF
+    `ssh -T $instanceIp << EOF
         cd /var/www/cmg
-        bin/magento maintenance:enable
+        sudo -u apache bin/magento maintenance:enable
 EOF`;
 }
 
 // ADMIN IN MAINTENANCE
-`bin/magento maintenance:enable`;
+`sudo -u apache bin/magento maintenance:enable`;
 // API MAINTENANCE
