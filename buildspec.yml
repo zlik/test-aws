@@ -12,10 +12,9 @@ phases:
       - echo Entered the build phase...
       - echo Build started on `date`
       - composer install --no-dev
-      - bin/magento module:enable --all
       - bin/magento setup:di:compile
       - composer dump-autoload --no-dev --optimize
-      - bin/magento setup:static-content:deploy -f
+      - bin/magento setup:static-content:deploy --exclude-theme=Magento/blank --exclude-theme=Magento/luma en_US
       - echo Build finished
 artifacts:
   files:

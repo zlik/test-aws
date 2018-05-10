@@ -18,6 +18,17 @@ hooks:
 permissions:
   - object: /var/www/cmg/
     pattern: "**"
+    except: [/var, /pub/media]
+    owner: apache
+    group: apache
+    mode: 550
+  - object: /var/www/cmg/var
+    pattern: "**"
+    owner: apache
+    group: apache
+    mode: 777
+  - object: /var/www/cmg/pub/media
+    pattern: "**"
     owner: apache
     group: apache
     mode: 777
