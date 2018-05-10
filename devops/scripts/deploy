@@ -1,9 +1,12 @@
 #!/bin/bash
 
-if [ $(hostname) != admin ]; then
+# TODO: move me below IF
+
+bin/magento cache:flush
+
+if [ $(hostname) != admin01 ]; then
     exit 0
 fi
 
-bin/magento cache:flush
 bin/magento setup:upgrade
 bin/magento maintenance:disable
