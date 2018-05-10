@@ -6,6 +6,7 @@ phases:
       - echo Entered the install phase...
   pre_build:
     commands:
+      - echo Entered the pre_build phase...
       - chmod +x bin/magento
   build:
     commands:
@@ -15,7 +16,11 @@ phases:
       - bin/magento setup:di:compile
       - composer dump-autoload --no-dev --optimize
       - bin/magento setup:static-content:deploy -f
-      - echo Build finished
+  post_build:
+    commands:
+      - echo Entered the post_build phase...
+      - rm -rf setup/ phpserver/ dev/ devops/ LICENSE*.txt *.sample *.md Dockerfile COPYING.txt .gitignore
+      - echo Build completed on `date`
 artifacts:
   files:
     - '**/*'
