@@ -19,7 +19,7 @@ phases:
   post_build:
     commands:
       - echo Entered the post_build phase...
-      - rm -rf setup/ phpserver/ dev/ devops/ LICENSE*.txt *.sample *.md Dockerfile COPYING.txt .gitignore
+      - rm -rf setup/ phpserver/ dev/ *.sample *.md Dockerfile
       - echo Build completed on `date`
 artifacts:
   files:
