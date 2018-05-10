@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Purge PHP OPCache storage
+
+if [ $(hostname) != admin01 ]; then
+    exit 0
+fi
+
+opcache_endpoint="http://localhost/opcache"
+auth_string="opcacheuser:kqYoMpQb25BZ"
+
+echo "PHP OPCache purging..."
+
+php -r 'opcache_reset();'
+
+result=$(
+curl -X PURGE "$opcache_endpoint" \
+     --user $auth_string \
+     -s
+)
+echo "PHP OPCache purge finished with result: $result"

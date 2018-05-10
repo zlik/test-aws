@@ -5,17 +5,20 @@ files:
     destination: /var/www/cmg/
 hooks:
   BeforeInstall:
-    - location: devops/scripts/maintenance_on
+    - location: devops/scripts/maintenance-on
       timeout: 300
       runas: ec2-user
-    - location: devops/scripts/prepare_environment
+    - location: devops/scripts/prepare-environment
       timeout: 300
       runas: root
+    - location: devops/scripts/opcache-purge
+      timeout: 300
+      runas: apache
   Install:
     - location: devops/scripts/deploy
       timeout: 300
       runas: apache
   AfterInstall:
-    - location: devops/scripts/set_permissions
+    - location: devops/scripts/set-permissions
       timeout: 300
       runas: root

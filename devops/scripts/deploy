@@ -2,11 +2,15 @@
 
 # TODO: move me below IF
 
+echo "Flushing all caches..."
 php bin/magento cache:flush
 
 if [ $(hostname) != admin01 ]; then
     exit 0
 fi
 
+echo "Upgrading live database..."
 php bin/magento setup:upgrade --keep-generated
+
+echo "Disabling maintenance..."
 php bin/magento maintenance:disable
