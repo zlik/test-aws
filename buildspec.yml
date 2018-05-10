@@ -14,7 +14,7 @@ phases:
       - composer install --no-dev
       - bin/magento setup:di:compile
       - composer dump-autoload --no-dev --optimize
-      - bin/magento setup:static-content:deploy --exclude-theme=Magento/blank --exclude-theme=Magento/luma en_US
+      - bin/magento setup:static-content:deploy -f
       - echo Build finished
 artifacts:
   files:
