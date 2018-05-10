@@ -25,10 +25,10 @@ $targetInstanceIps = flatten(json_decode(`aws ec2 describe-instances --region $t
 foreach ($targetInstanceIps as $instanceIp) {
     `ssh -T $instanceIp << EOF
         cd /var/www/cmg
-        sudo -u apache bin/magento maintenance:enable
+        sudo -u apache php bin/magento maintenance:enable
 EOF`;
 }
 
 // ADMIN IN MAINTENANCE
-`sudo -u apache bin/magento maintenance:enable`;
+`sudo -u apache php bin/magento maintenance:enable`;
 // API MAINTENANCE

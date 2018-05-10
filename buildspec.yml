@@ -13,9 +13,9 @@ phases:
       - echo Entered the build phase...
       - echo Build started on `date`
       - composer install --no-dev
-      - bin/magento setup:di:compile
+      - php bin/magento setup:di:compile
       - composer dump-autoload --no-dev --optimize
-      - bin/magento setup:static-content:deploy -f
+      - php bin/magento setup:static-content:deploy -f
   post_build:
     commands:
       - echo Entered the post_build phase...
