@@ -19,6 +19,7 @@ phases:
   post_build:
     commands:
       - echo Entered the post_build phase...
+      - echo $CODEBUILD_RESOLVED_SOURCE_VERSION > revision
       - echo Build completed on `date`
 artifacts:
   files:
